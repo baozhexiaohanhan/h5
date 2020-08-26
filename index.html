@@ -116,7 +116,6 @@
 		</a>
 	</ul>
 </div>
-<script src="/js/jquery-1.12.3.js"></script>
 <!--轮播图-->
 <script type="text/javascript">
 	var mySwiper = new Swiper('.swiper-container', {
@@ -125,24 +124,22 @@
 		autoplay : true
 	})
 </script>
-
-
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script>
 	//获取首页商品列表
 	$.ajax({
-		url: 'http://app.1910.com/home/goods',		//首页接口
+		url: 'http://api.1910.com/home/goods',		//首页接口
 		type: 'get',
 		dataType: 'json',
-		xhrFields: { withCredentials:true},
-		success: function(d)
-		{
+		xhrFields: {withCredentials:true},
+		success: function(d) {
 			//填充页面数据
 			console.log(d);
 			$.each(d.data.goods,function(i,item){
 				console.log(i + '--' + item.goods_name);
 				var node = '<li>' +
 						'<div class="spwai">' +
-						'<a href="/detail.html?id='+ item.goods_id +'"><img src="img/sytu8.png"/></a>' +
+						'<a href="/detail.html?id='+ item.goods_id +'"><img src="img/1.jpg"/></a>' +
 						'<div class="spxinxi">' +
 						'<p><a href="">'+ item.goods_name +'</a></p>' +
 						'<span>￥'+item.shop_price+'</span>' +
@@ -154,6 +151,7 @@
 
 		}
 	});
+
 </script>
 </body>
 </html>
